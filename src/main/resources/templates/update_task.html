@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Task Management System</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1 align = "center">Task Management System</h1>
+		<hr>
+		<br/>
+		<h2>Update Employee</h2>
+
+		<form action="#" th:action="@{/saveTask}" th:object="${task}"
+			method="POST">
+			
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			
+			<input type="text" th:field="*{title}"
+				placeholder="Task Title" class="form-control mb-4 col-4">
+				
+			<input type="text" th:field="*{description}"
+				placeholder="Task Description" class="form-control mb-4 col-4">
+			
+			<div class="form-check">
+				<input type="checkbox" th:field="*{completed}" id="completed" class="toggle-button">
+				<label for="completed" class="form-check-label">Mark as Completed</label>
+			</div>
+			<br/>
+			<button type="submit" class="btn btn-info col-2"> Update Employee</button>
+		</form>
+		
+		<hr>
+		
+		<a th:href = "@{/}"> Back to Task List</a>
+	</div>
+</body>
+</html>
